@@ -1,0 +1,50 @@
+body{
+    background-color: #116914;
+}
+#carta{
+    width: 300px;
+    height: 440px;
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    margin: 5% auto;
+}
+#simboloArriba{
+    
+    display: inline-block;
+    position: relative;
+    left: 10px;
+    color: red;
+    font-size: 100px;
+    width: 60px;
+    height: 100px;
+}
+#numero{
+    color: rgb(250, 250, 250);
+    font-size: 120px;
+    width: 120px;
+    margin: 50px auto;
+    text-align: center;
+}
+#simboloAbajo{
+    float: right;
+    position: relative;
+    right: 10px;
+    bottom: -15px;
+    color: red;
+    font-size: 100px;
+    width: 60px;
+    height: 100px;
+    transform: rotate(-180deg)
+}
+#boton-nueva{
+    margin: auto;
+    width: 300px;
+    text-align: center;
+}
+.boton{
+    width: 170px;
+    font-size: 25px;
+    border-radius: 5px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px;
+}
