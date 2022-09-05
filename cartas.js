@@ -1,23 +1,24 @@
-//Valores y simbolos
+//Valores y simbolos a considerar
 const simbolos = ["corazon", "diamante", "pica", "trebol"]; 
 const valores = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
 //Selección de elementos del dom que se veran alterados
+//Elementos del naipe
 let izquierdaArriba = document.querySelector("#izquierdaArriba");
 let numero = document.querySelector("#numero");
 let derechaAbajo = document.querySelector("#derechaAbajo");
 
 //Función que elige aleatoriamente un valor y lo expresa
-function eleccionCarta(arr1, arr2){
-    let carta =[]
-    carta.push(arr1[Math.floor(Math.random()*arr1.length)]);
-    carta.push(arr2[Math.floor(Math.random()*arr2.length)]);
+function eleccionCarta(array1, array2){
+    let carta = []
+    carta.push(array1[Math.floor(Math.random()*array1.length)]);
+    carta.push(array2[Math.floor(Math.random()*array2.length)]);
     return carta
 }
 
 //Función que elige aleatoriamente un color y lo expresa
-function asignarColor(arr){
-    if(arr[0] === "corazon" || arr[0] === "diamante"){
+function asignarColor(array){
+    if(array[0] === "corazon" || array[0] === "diamante"){
         izquierdaArriba.style.color = "red";
         numero.style.color = "red";
         derechaAbajo.style.color = "red";
@@ -30,14 +31,14 @@ function asignarColor(arr){
 }
 
 //Función que elige aleatoriamente un simbolo y lo expresa
-function asignarSimbolos(arr) {
-  if (arr[0] === "corazon") {
+function asignarSimbolos(array) {
+  if (array[0] === "corazon") {
     izquierdaArriba.innerHTML = "♥";
     derechaAbajo.innerHTML = "♥";
-  } else if (arr[0] === "diamante") {
+  } else if (array[0] === "diamante") {
     izquierdaArriba.innerHTML = "♦";
     derechaAbajo.innerHTML = "♦";
-  } else if (arr[0] === "trebol") {
+  } else if (array[0] === "trebol") {
     izquierdaArriba.innerHTML = "♣";
     derechaAbajo.innerHTML = "♣";
   } else {
@@ -45,18 +46,19 @@ function asignarSimbolos(arr) {
     derechaAbajo.innerHTML = "♠";
   }
 }
-function asignarValor(arr){
-    numero.innerHTML = arr[1];
+
+//Función que elige aleatoriamente un valor y lo expresa
+function asignarValor(array){
+    numero.innerHTML = array[1];
 }
 
-//Función que recoge f(asignaarColor, asignarSimbolos, asignarValor)
+//Función que recoge fx(asignarColor, asignarSimbolos, asignarValor)
 function generacionCarta(){
     let carta = eleccionCarta(simbolos, valores);
     asignarColor(carta);
     asignarSimbolos(carta);
     asignarValor(carta);
 }
-
 
 window.onload = function(){generacionCarta()}
 document.querySelector(".boton").addEventListener("click", generacionCarta)
